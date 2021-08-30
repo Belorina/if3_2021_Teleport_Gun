@@ -9,11 +9,16 @@ public class TeleportBullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("BOOM");
-        Destroy(gameObject);    // gameobject en miniscule = donne gameobject au quelle apartien le script 
-        
-        Debug.Log("Point de contact: " + collision.GetContact(0).point);     // GetContact sans S car on prends que le premier // .point car on veux que le point
-        player.transform.position = collision.GetContact(0).point;
+        if (!collision.collider.CompareTag("Bounce"))
+        {
+            Destroy(gameObject);    // gameobject en miniscule = donne gameobject au quelle apartien le script 
+
+        }
+
+        if (collision.collider.CompareTag("Teleport"))
+        {
+            player.transform.position = collision.GetContact(0).point;
+        }
     }
-  
+
 }
