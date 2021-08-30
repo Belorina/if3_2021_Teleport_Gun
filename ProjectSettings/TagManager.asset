@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Teleport
+  - Bounce
   layers:
   - Default
   - TransparentFX
